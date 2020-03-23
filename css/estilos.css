@@ -1,0 +1,185 @@
+/* elementos comuns */
+body {
+	color: #ffe6e6;
+	background-color: #990000;
+	font-family: Verdana, Georgia, sans-serif;
+	font-size: 12pt;
+}
+hr {
+	color: #ffe6e6;
+}
+h2 {
+	text-align: center;
+	font-size: 2em;
+}
+h4 {
+	text-align: center;
+	font-style: italic;
+}
+h5 {
+	text-align: left;
+	font-style: normal;
+	white-space: nowrap;
+	margin-bottom: 0px;
+}
+fieldset {
+	border: 6px solid #ffe6e6;
+	/* border-spacing: 3px; */
+	width: 500px;
+	margin: 0px 400px;
+	font-variant: small-caps;
+}
+legend {
+	font-family: Verdana, Georgia, sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #ffe6e6;
+}
+
+/* seletores do menu */
+ul.navbar {
+	list-style-type: none;
+	padding-top: 30px;
+	padding-left: 2px;
+	margin: 0 7px;
+	position: absolute;
+	left: 0;
+	top: 2em;
+	width: 90%;
+	font-variant: small-caps;
+	/* text-shadow: 5 15 #330000; */
+}
+ul.navbar li {
+	/* background: #ffe6e6; */
+	margin: 0.5em 0;
+	padding: 0.3em;
+	border-right: 1em #660000;
+}
+ul.navbar a {
+	text-decoration: none;
+}
+a:link {
+	color: #660000;
+	font-weight: bold;
+	text-shadow: 5 15 #330000;
+	display: inline-table;
+}
+a:visited {
+	color: #ffff99;
+	font-weight: bold;
+}
+a:hover {
+	color: #ffe6e6;
+	font-weight: bolder;
+	background-color: #262626;
+}
+
+/* IMAGENS */
+img {
+	margin: 40px;
+}
+
+/* classes */
+.menuto {
+	background-color: black;
+	/* background-image: url(anexos/aluminum_texture1784.jpg); */
+}
+.form_login {
+	align-self: center;
+	font-variant: normal;
+	padding: 10px;
+}
+.caixa {
+	border: 3px #ffffff;
+	width: 500px;
+	/* Também podemos utilizar, p. ex.
+		background: white;
+		height: 30px;
+		etc
+	*/
+}
+.caixa:focus {
+	border: 5px solid #660000;
+	border-radius: 6px;
+	box-shadow: 0 0 15px #660000;
+	width: 520px;
+}
+.form_amigo {
+	width: 500px;
+}
+.central {
+	align-items: center;
+}
+.menu {
+	background-color: #330033;
+}
+.palco {
+	background-color: yellow;
+}
+.tabela {
+	margin-left: 250px;
+	overflow: hidden;
+}
+.tabela img {
+	transition: all 0.3s;
+}
+
+/* imagens individuais */
+#img1:hover {
+	transform: scale(1.4);
+}
+#img2:hover {
+	transform: scale(1.4);
+}
+#img3:hover {
+	transform: scale(1.4);
+}
+#img4:hover {
+	transform: scale(1.4);
+}
+#img5:hover {
+	transform: scale(1.4);
+}
+#img6:hover {
+	transform: scale(1.4);
+}
+
+/* id's */
+#botao {
+	width: 75px;
+	height: 35px;
+	border-radius: 2px;
+	margin: 0px 7px 0px 0px;
+}
+#botao:hover {
+	box-shadow 5 5 45px black;
+	border-radius: 6px;
+	width: 90px;
+	margin: 0px 7px 0px 0px;
+}
+/* regra específica */
+#bemvindo {
+	vertical-align: center;
+	margin-top: 150px;
+}
+/* regra específica */
+#field_amigo {
+	width: 500px;
+	margin: auto;
+}
+#tabela_amiga tr,td {
+	margin-top: 3px;
+	margin-bottom: 2px;
+	align-items: left;
+	vertical-align: center;
+	font-variant: normal;
+}
+/* regra específica */
+#genero {
+	font-variant: normal;
+}
+/* regra específica */
+#voltar {
+	text-align: right;
+}

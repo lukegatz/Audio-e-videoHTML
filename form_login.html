@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+</head>
+<body>
+	<h2>Área de Segurança</h2>
+	<fieldset>
+		<legend>Identificação do usuário</legend>
+		<form class="form_login" name="form_login">
+			<h3>Usuário ou e-mail</h3>
+			<input class="caixa" name="usuario" type="text" />
+			<h3>Senha</h3>
+			<input class="caixa" name="senha" type="password" />
+			<br/><br/><br/>
+			<input id="botao" name="submit" type="button" value="Enviar" onclick="Login()" />
+			<input id="botao" name="limpar" type="button" value="Limpar" onclick="Limpar()" />
+		</form>
+	</fieldset>
+	<script type="text/javascript">
+		/* A função login verifica se o usuário e a senha estão cadastrados no sistema */
+		function Login() {
+			var user = document.form_login.usuario.value;
+			var pass = document.form_login.senha.value;
+			/* Se o usuário for "fatec" ou fatec@fatec e a senha for "1234" */
+			if((user=="fatec" || user=="fatec@fatec") && pass=="1234") {
+				alert("Conta logada com sucesso!!");
+				window.location="bemvindos.html";
+			}
+			else {
+				alert("Usuário ou senha inválidos!");
+				Limpar();
+			}
+
+		}
+
+		/* A Essa função limpa as entradas do formulário e seta o foco para a primeira caixa de
+		texto do formulário */
+		function Limpar() {
+			document.form_login.usuario.value = "";
+			document.form_login.senha.value = "";
+			document.form_login.usuario.focus();
+		} 
+	</script>
+</body>
+</html>

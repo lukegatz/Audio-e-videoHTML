@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+</head>
+<body>
+	<h2>Faça seu cadastro e receba novidades!</h2>
+	<fieldset id="field_amigo">
+		<legend>DADOS PESSOAIS</legend>
+		<form class="form_amigo" id="meuForm" name="form_amigo">
+			<h5>CPF:</h5>
+			<input class="caixa" name="cpf" type="text" />
+			<h5>Nome do cliente:</h5>
+			<input class="caixa" name="cliente" type="text" />
+			<h5>Endereço:</h5>
+			<input class="caixa" name="endereco" type="text" />
+			<h5>Cidade:</h5>
+			<input class="caixa" name="cidade" type="text" />
+			<h5>Sexo: &nbsp;&nbsp;&nbsp;
+				<span id="genero">
+					<input class="radiobutton" id="masc" type="radio" name="genero" value="Masculino"> &nbsp; Masculino &nbsp;&nbsp;  
+					<input class="radiobutton" id="fem"  type="radio" name="genero" value="Feminino"> &nbsp; Feminino  
+				</span>
+			</h5> 
+			<h5>E-mail:</h5>
+			<input class="caixa" name="email" type="email" />
+			<h5>Gênero de filmes do seu interesse:</h5>
+			<br/>
+			<table class="tabela_amiga">
+				<tr>
+					<td><input class="checkers" type="checkbox" name="interesse" valor="Aventura"/> &nbsp;Aventura &nbsp;&nbsp;</td>
+					<td><input class="checkers" type="checkbox" name="interesse" valor="Comédia"/> &nbsp;Comédia &nbsp;&nbsp;</td>
+					<td><input class="checkers" type="checkbox" name="interesse" valor="Romance"/> &nbsp;Romance &nbsp;&nbsp;</td>
+				</tr>
+				<tr>
+					<td><input class="checkers" type="checkbox" name="interesse" valor="Ação"/> &nbsp;Ação &nbsp;&nbsp;</td>
+					<td><input class="checkers" type="checkbox" name="interesse" valor="Drama"/> &nbsp;Drama &nbsp;&nbsp;</td>
+					<td><input class="checkers" type="checkbox" name="interesse" valor="Suspense"/> &nbsp;Suspense &nbsp;&nbsp;</td>
+				</tr>
+			</table>
+			<p id="voltar"><a href="lancamentos.html" target="palco">voltar para lançamentos</a></p>
+			<br/>
+			<div class="central">
+				<input id="botao" name="submit" type="button" value="Enviar" onclick="Validar()" />
+				<input id="botao" name="limpar" type="button" value="Limpar" onclick="Limpar()" />
+			</div>
+		</form>
+	</fieldset>
+	<script type="text/javascript">
+		/* A função Validar verifica o preenchimento do formulário, validando-o */
+		function Validar() {
+			var cpfd = document.form_amigo.cpf.value;
+			var clin = document.form_amigo.cliente.value;
+			var ende = document.form_amigo.endereco.value;
+			var cida = document.form_amigo.cidade.value;
+			var emai = document.form_amigo.email.value;
+			var masc = document.getElementById("masc");
+			var femi = document.getElementById("fem");
+			// expressão regex para o CPF
+			var regex = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
+			// var para lidar com as checkboxs
+			var tabl = document.getElementsByName("interesse");
+			var inti = false;
+			
+			if(regex.test(cpfd)==false) {
+				alert("O CPF deve ser preenchido no formato 'xxx.xxx.xxx-xx'!!");
+				document.form_amigo.cpf.focus();
+				return false;
+			}
+			if(clin=="" || clin.length<5) {
+				alert("Preencha seu nome completo!!");
+				document.form_amigo.cliente.focus();
+				return false;
+			}
+			if(ende=="" || ende.length<5) {
+				alert("Esse não parece ser um endereço válido!!");
+				document.form_amigo.endereco.focus();
+				return false;
+			}
+			if(cida=="" || cida.length<5) {
+				alert("Preencha o campo cidade!!");
+				document.form_amigo.cidade.focus();
+				return false;
+			}
+			if((emai=="") || (emai.indexOf('@')==-1) || (emai.indexOf('.')==-1)) {
+				alert("Esse não é um e-mail válido!!");
+				document.form_amigo.email.focus();
+				return false;
+			}
+			if(masc.checked==false && femi.checked==false) {
+				alert("Selecione o gênero!!");
+				return false;
+			}
+			// Algum gênero de filme foi selecionado?
+			for(i=0; i<tabl.length; i++) {
+				if(tabl[i].checked==true) {
+					inti=true;
+					break;
+				}
+			}
+			if(inti==false) {
+					alert("Selecione pelo menos um gênero de filme!!");
+					return false;
+			}
+
+			// se passou por todas as validações, envia o formulário, e limpa para outra entrada >>
+			// actionPHP::envia etc.
+			alert("Cadastro realizado com sucesso!!");
+			Limpar();
+		}
+
+		/* A Essa função limpa as entradas do formulário e seta o foco para a primeira caixa de
+		texto do formulário */
+		function Limpar() {
+			document.getElementById('meuForm').reset();
+			document.form_amigo.cpf.focus();
+			} 
+		</script>
+	</body>
+	</html>
